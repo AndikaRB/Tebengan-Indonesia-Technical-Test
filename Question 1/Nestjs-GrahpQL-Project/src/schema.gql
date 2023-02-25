@@ -1,0 +1,46 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Product {
+  id: Int!
+  nama_barang: String
+  kode_barang: String!
+  jumlah_barang: Int!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  products(pagination: GetProductsInput!): [Product!]!
+  getProduct(id: Int!): Product!
+}
+
+input GetProductsInput {
+  page: Float
+  limit: Float
+}
+
+type Mutation {
+  createProduct(createProductInput: CreateProductInput!): Product!
+  updateProduct(id: Int!, updateProductInput: UpdateProductInput!): Product!
+  deleteProduct(id: Int!): Product!
+}
+
+input CreateProductInput {
+  nama_barang: String!
+  kode_barang: String!
+  jumlah_barang: Int!
+}
+
+input UpdateProductInput {
+  id: Int
+  nama_barang: String
+  kode_barang: String
+  jumlah_barang: Int
+}
