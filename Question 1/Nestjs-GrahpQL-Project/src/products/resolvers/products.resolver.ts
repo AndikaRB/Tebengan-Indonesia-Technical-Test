@@ -10,26 +10,26 @@ export class ProductsResolver {
   constructor(private productsService: ProductsService) {}
 
   @Query((returns) => [Product])
-  products(
+  getAllProducts(
     @Args('pagination') getProductInput: GetProductsInput,
   ): Promise<Product[]> {
     return this.productsService.findAll(getProductInput);
   }
 
   @Query((returns) => Product)
-  getProduct(@Args('id', { type: () => Int }) id: number): Promise<Product> {
+  getProductById(@Args('id', { type: () => Int }) id: number): Promise<Product> {
     return this.productsService.findOne(id);
   }
 
   @Mutation((returns) => Product)
-  createProduct(
+  createNewProduct(
     @Args('createProductInput') createProductInput: CreateProductInput,
   ): Promise<Product> {
     return this.productsService.createProduct(createProductInput);
   }
 
   @Mutation((returns) => Product)
-  updateProduct(
+  updateProductById(
     @Args('id', { type: () => Int }) id: number,
     @Args('updateProductInput') updateProductInput: UpdateProductInput,
   ): Promise<Product> {
@@ -37,7 +37,7 @@ export class ProductsResolver {
   }
 
   @Mutation((returns) => Product)
-  deleteProduct(@Args('id', { type: () => Int }) id: number) {
+  deleteProductById(@Args('id', { type: () => Int }) id: number) {
     return this.productsService.remove(id);
   }
 }
