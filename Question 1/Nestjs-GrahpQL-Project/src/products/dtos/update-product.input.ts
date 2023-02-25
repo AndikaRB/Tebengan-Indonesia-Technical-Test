@@ -3,9 +3,6 @@ import { IsNotEmpty } from 'class-validator';
 
 @InputType()
 export class UpdateProductInput {
-  @Field((type) => Int, { nullable: true })
-  id: number;
-
   @Field({ nullable: true })
   @IsNotEmpty()
   nama_barang?: string;
