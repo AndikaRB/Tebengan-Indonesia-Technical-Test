@@ -5,7 +5,7 @@ import { UpdateProductInput } from '../dtos/update-product.input';
 import { Product } from '../entities/product.entity';
 import { ProductsService } from '../services/products.service';
 
-@Resolver((of) => Product)
+@Resolver((of) => Product
 export class ProductsResolver {
   constructor(private productsService: ProductsService) {}
 
